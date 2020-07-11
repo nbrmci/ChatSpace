@@ -1,0 +1,42 @@
+.Main
+  .Main-header
+    .Main-header__current-group
+      %p.Main-header__current-group--test
+        test
+      %p.Main-header__current-group--member
+        Member : mochi
+    .Main-header__edit
+      = link_to "Edit", "#", class:"edit"
+  .Main-chat
+    .Main-chat__user
+      %p.Main-chat__user--name
+        mochi
+      %p.Main-chat__user--date
+        2020/7/10(Fri) 17:09
+    .Main-chat__messages
+      %p.Main-chat__messages--message
+        おはよう！
+    .Main-chat__user
+      %p.Main-chat__user--name
+        mochi
+      %p.Main-chat__user--date
+        2020/7/10(Fri) 17:09
+    .Main-chat__messages
+      %p.Main-chat__messages--message
+        こんにちは！
+    .Main-chat__user
+      %p.Main-chat__user--name
+        mochi
+      %p.Main-chat__user--date
+        2020/7/10(Fri) 17:09
+    .Main-chat__messages
+      %p.Main-chat__messages--message
+        こんばんは！
+  .Main-message-form
+    %form.new_message
+      .Form-contents
+        %input{type: "text", class: "Form-contents__text", placeholder: "type a message"}
+        %label{class: "Form-contents__image"}
+          = icon('far', 'image')
+          %input{type: "file", class: "Form-contents__image__file"}
+      %input{type: "submit", value: "Send", class: "submit-btn"}
