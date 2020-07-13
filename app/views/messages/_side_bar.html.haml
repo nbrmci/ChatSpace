@@ -2,13 +2,13 @@
   .Sidebar-header
     .Sidebar-header__box
       %p.Sidebar-header__box--user
-        mochi
+        = current_user.name
       %ul.Sidebar-header__icons
         %li.Sidebar-header__icons--icon
           = link_to "#", class:"edit" do
             = icon('fas', 'edit')
         %li.Sidebar-header__icons--icon
-          = link_to "#", class:"cog" do
+          = link_to edit_user_path(current_user), class:"cog" do
             = icon('fas', 'cog')
   .Sidebar-groups
     .Sidebar-groups__group
