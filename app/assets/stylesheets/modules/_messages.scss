@@ -131,9 +131,10 @@
   form {
     display: flex;
     .Form-contents{
-      width: 100%;
       display: flex;
       position: relative;
+      width: 100%;
+      display: block;
       &__text{
         height: 50px;
         width: 100%;
