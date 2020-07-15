@@ -1,0 +1,10 @@
+.Main-chat__user
+  .Main-chat__user--name
+    = message.user.name
+  .Main-chat__user--date
+    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+.Main-chat__messages
+  - if message.content.present?
+    %p.Main-chat__messages--message
+      = message.content
+  = image_tag message.image.url, class: '.Main-chat__messages__image' if message.image.present?
