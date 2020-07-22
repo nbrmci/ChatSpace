@@ -2,28 +2,28 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-      `<div class="Main-chat__user">
-        <div class="Main-chat__user--name">
-          ${message.user_name}
+        `<div class="Main-chat__user" data-message-id=${message.id}>
+          <div class="Main-chat__user--name">
+            ${message.user_name}
+          </div>
+          <div class="Main-chat__user--date">
+            ${message.created_at}
+          </div>
         </div>
-        <div calss="Main-chat__user--date">
-          ${message.created_at}
-        </div>
-      </div>
-    <div class="Main-chat__messages">
-      <div class="Main-chat__messages--message">
-        ${message.content}
-      </div>
-        <img class="Main-chat__messages__image" src="${message.image}">
-    </div>`
+        <div class="Main-chat__messages">
+          <div class="Main-chat__messages--message">
+            ${message.content}
+          </div>
+          <img class="Main-chat__messages__image" src="${message.image}">
+        </div>`
       return html;
     } else {
       let html =
-      `<div class="Main-chat__user">
+      `<div class="Main-chat__user" data-message-id=${message.id}>
         <div class="Main-chat__user--name">
           ${message.user_name}
         </div>
-        <div calss="Main-chat__user--date">
+        <div class="Main-chat__user--date">
           ${message.created_at}
         </div>
       </div>
@@ -50,13 +50,14 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.Main-chat').append(html);
+      $('.Main-chat').append(html);      
+      $('form')[0].reset();
       $('.Main-chat').animate({ scrollTop: $('.Main-chat')[0].scrollHeight});
-      $('.form')[0].reset();
-      $('.submit-btn').prop('disabled', false);
+      $('.submit-btn').prop("disabled", false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-    })
+      $('.submit-btn').prop("disabled", false);
+    });
   });
 });
