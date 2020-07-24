@@ -4,6 +4,7 @@
       %p.Main-header__current-group--test
         = @group.name
       %p.Main-header__current-group--member
+        Member :
         - @group.users.each do |user|
           = user.name
     .Main-header__edit
